@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Clock, Users, Shield, Smartphone, Bell } from 'lucide-react';
 import LoginModal from './auth/LoginModal';
+import { Link } from "react-router-dom";
 
 const BusTrackingLanding: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -129,11 +130,11 @@ const BusTrackingLanding: React.FC = () => {
                 </svg>
               </button>
             </a>
-             <a href="/">  
+            <Link to="/about">  
               <button className="px-6 md:px-8 py-3 md:py-4 font-semibold transition-colors duration-300 text-sm md:text-base" style={{color: '#414a38'}}>
-              About Us
+                About Us
               </button>
-            </a> 
+            </Link>
           </div>
         </div>
       </section>
