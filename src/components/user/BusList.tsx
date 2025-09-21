@@ -7,7 +7,7 @@ interface Bus {
   busNumber: string;
   route: string;
   eta: string;
-  currentLocation: string;
+  currentLocation: { lat: number; lng: number; };
   capacity: { current: number; total: number; };
   driver: string;
 }
@@ -48,7 +48,10 @@ const BusList: React.FC<BusListProps> = ({ buses, onBusSelect, selectedBus }) =>
             </div>
             <div className="flex items-center space-x-1">
               <Navigation className="w-4 h-4 text-blue-500" />
-              <span>{bus.currentLocation}</span>
+              {/* Corrected line: Display lat and lng as a string */}
+              <span>
+                Lat: {bus.currentLocation.lat}, Lng: {bus.currentLocation.lng}
+              </span>
             </div>
             <div className="flex items-center space-x-1">
               <Users className="w-4 h-4" />
