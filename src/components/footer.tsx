@@ -1,16 +1,16 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6"; // ✅ New Twitter (X) icon
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#ece6e1] text-[#99744a] py-10 mt-10">
+    <footer className="hidden md:block bg-[#ece6e1] text-[#99744a] py-10 mt-10">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-[#a09385] pb-8">
           {/* Logo + Tagline */}
           <div className="flex flex-col items-center md:items-start space-y-4">
             <img
-              src="https://res.cloudinary.com/dx0r0pbgb/image/upload/v1758448046/logo_u4xbmh.png"
+              src="/logo.png"
               alt="BusHive Logo"
               className="w-28 h-auto"
             />
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
             <h3 className="font-semibold text-[#83633e] mb-4">Connect With Us</h3>
             <div className="flex space-x-6 text-xl">
               <a href="https://facebook.com" className="hover:text-[#83633e]"><FaFacebook /></a>
-              <a href="https://twitter.com" className="hover:text-[#83633e]"><FaXTwitter /></a> {/* ✅ Changed */}
+              <a href="https://twitter.com" className="hover:text-[#83633e]"><FaXTwitter /></a>
               <a href="https://instagram.com" className="hover:text-[#83633e]"><FaInstagram /></a>
               <a href="https://linkedin.com" className="hover:text-[#83633e]"><FaLinkedin /></a>
             </div>
