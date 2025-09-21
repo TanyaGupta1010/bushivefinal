@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-white sticky top-0 z-50 shadow-sm border-b border-[#99744A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          
           <Link to="/" className="flex items-center">
             <img
               src="https://res.cloudinary.com/dx0r0pbgb/image/upload/v1758448036/logo1_qzpcys.jpg"
@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
             />
           </Link>
 
-          {/* Desktop Links */}
+          
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
