@@ -13,6 +13,8 @@ import DriverDashboard from './pages/driver/DriverDashboard';
 // import SettingsPage from './pages/user/SettingsPage';
 import ContactUs from './components/ContactUS';
 import Footer from './components/footer';
+import About from './pages/About'; // adjust the path if About.tsx is in a different folder
+
 
 const App: React.FC = () => {
   return (
@@ -23,6 +25,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<LandingPage />} />
+              <Route path="/about" element={<About />} />
 
               {/* User Auth Routes */}
               <Route path="/user/login" element={<UserLogin />} />
