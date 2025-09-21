@@ -10,15 +10,13 @@ const Navbar: React.FC = () => {
     { name: 'Driver', href: '/driver/login', icon: <RouteIcon className="h-5 w-5" /> },
     { name: 'Live Map', href: '/map', icon: <MapPin className="h-5 w-5" /> },
     { name: 'Contact Us', href: '/contact', icon: <Mail className="h-5 w-5" /> },
-    // { name: 'Register', href: '/user/signup', icon: <User className="h-5 w-5" /> },
-
   ];
 
   return (
     <nav className="bg-white sticky top-0 z-50 shadow-sm border-b border-[#99744A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          
           <Link to="/" className="flex items-center">
             <img
               src="https://res.cloudinary.com/dx0r0pbgb/image/upload/v1758448036/logo1_qzpcys.jpg"
@@ -27,7 +25,7 @@ const Navbar: React.FC = () => {
             />
           </Link>
 
-          {/* Desktop Links */}
+          
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
@@ -60,20 +58,18 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Side-sliding) */}
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'visible bg-black bg-opacity-40 backdrop-blur-sm' : 'invisible'
         }`}
+        onClick={() => setIsMenuOpen(false)}
       >
         <div
-          className="absolute inset-0 bg-white bg-opacity-75 backdrop-blur-sm"
-          onClick={() => setIsMenuOpen(false)}
-        ></div>
-        <div
-          className={`relative z-50 bg-[#F7F2EB] w-full h-full transform transition-transform duration-300 ease-in-out ${
+          className={`fixed top-0 right-0 w-3/4 h-full bg-[#F7F2EB] shadow-lg transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          } flex flex-col items-center justify-center p-8`}
+          } p-8`}
+          onClick={(e) => e.stopPropagation()}
         >
           <button
             onClick={() => setIsMenuOpen(false)}
@@ -81,7 +77,7 @@ const Navbar: React.FC = () => {
           >
             <X className="h-6 w-6" />
           </button>
-          <div className="flex flex-col items-center space-y-6">
+          <div className="flex flex-col items-center space-y-6 mt-16"> {/* Added margin-top to prevent overlap with close button */}
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -93,7 +89,7 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             <Link
-              to="src/components/pages/auth/UserSignup.tsx"
+              to="/user/signup"
               onClick={() => setIsMenuOpen(false)}
               className="w-full text-center bg-[#414A37] text-[#DBC2A6] px-8 py-4 rounded-lg text-2xl font-bold hover:bg-[#2F362C]"
             >
