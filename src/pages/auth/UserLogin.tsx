@@ -9,28 +9,30 @@ const UserLogin: React.FC = () => {
   });
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-      const data = await response.json();
+  try {
+    const response = await fetch('http://localhost:5000/api/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        navigate('/user/dashboard');
-      } else {
-        console.error('Login failed:', data.msg);
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
+    const data = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem('token', data.token);
+      navigate('/user/dashboard');
+    } else {
+      alert(data.msg || 'Login failed');
     }
-  };
+  } catch (error) {
+    console.error('Error during login:', error);
+    alert('Login error');
+  }
+};
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
